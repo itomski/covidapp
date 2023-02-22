@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de" xmlns="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <main class="container my-5">
+        <div class="row">
+            <div class="col">
+                <h1>API</h1>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Land
+                                <a href="?order=COUNTRY"><i class="fas fa-sort-alpha-down"></i></a>&nbsp;&nbsp;
+                                <a href="?order=COUNTRY_DESC"><i class="fas fa-sort-alpha-up"></i></a>
+                            </th>
+                            <th>Bevölkerung
+                                <a href="?order=POPULATION"><i class="fas fa-sort-numeric-down"></i></a>&nbsp;&nbsp;
+                                <a href="?order=POPULATION_DESC"><i class="fas fa-sort-numeric-up"></i></a>
+                            </th>
+                            <th>Tests
+                                <a href="?order=TESTS"><i class="fas fa-sort-numeric-down"></i></a>&nbsp;&nbsp;
+                                <a href="?order=TESTS_DESC"><i class="fas fa-sort-numeric-up"></i></a>
+                            </th>
+                            <th>Fälle
+                                <a href="?order=CASES"><i class="fas fa-sort-numeric-down"></i></a>&nbsp;&nbsp;
+                                <a href="?order=CASES_DESC"><i class="fas fa-sort-numeric-up"></i></a>
+                            </th>
+                            <th>Tote
+                                <a href="?order=DEATHS"><i class="fas fa-sort-numeric-down"></i></a>&nbsp;&nbsp;
+                                <a href="?order=DEATHS_DESC"><i class="fas fa-sort-numeric-up"></i></a>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr th:each="c : ${countries}" >
+                            <td th:text="${c.country}"></td>
+                            <td th:text="${c.population}"></td>
+                            <td th:text="${c.tests.total}"></td>
+                            <td th:text="${c.cases.total}"></td>
+                            <td th:text="${c.deaths.total}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
